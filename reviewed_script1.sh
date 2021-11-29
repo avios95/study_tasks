@@ -1,11 +1,10 @@
 #!/bin/bash
 #This script check some service
-#Check process in system
  
 PID=$(ps aux | pgrep $1 | grep -v grep | awk NR\ ==\ 1\{print\ \$1\})
 
 if [[ "$PID" -gt 0 ]]; then
-	echo "Output: \nPID:$PID"
+	echo "Output:PID:$PID"
 	
 	FILES=$(lsof -p $PID | wc -l)
 	echo "Process $PID used $FILES files"
